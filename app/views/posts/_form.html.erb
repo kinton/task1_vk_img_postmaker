@@ -1,0 +1,47 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <% if post.image? %>
+    <%= image_tag(post.image.url, width: 200) %>
+    <div>
+      <%= label_tag :remove_image do %>
+        Remove image
+        <%= form.check_box :remove_image %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descriprion %>
+    <%= form.text_area :descriprion %>
+  </div>
+
+  <div class="field">
+    Vk token:
+    <%= form.text_field :token %>
+  </div>
+
+  <div class="field">
+    Group ID
+    <%= form.text_field :groupId %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

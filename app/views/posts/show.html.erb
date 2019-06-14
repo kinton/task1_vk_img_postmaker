@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong><br>
+  <img src="<%= @post.image %>" alt="" style="max-width: 200px;">	
+</p>
+
+<p>
+  <strong>Descriprion:</strong>
+  <%= @post.descriprion %>
+</p>
+
+<p>
+	<strong>Vk token:</strong>
+	<%= @post.token %>
+</p>
+
+<%=
+if @info != "We have some errors, sorry!"
+	link_to 'Link to post', @info
+else
+	@info
+end
+%>
+<br>
+<br>
+<br>
+
+<!--<%= link_to 'Edit', edit_post_path(@post) %> |-->
+<%= link_to 'Back', posts_path %>

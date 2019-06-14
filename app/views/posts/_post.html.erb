@@ -1,0 +1,9 @@
+<tr>
+    <td><%= image_tag(post.image.url, alt: 'ToVK', width: 200) if post.image.url %></td>
+    <td><%= post.descriprion %></td>
+    <td><%= post.token %></td>
+    <td><%= post.groupId %></td>
+    <td><%= link_to 'Post to vk once more', post %></td>
+    <!--<td><%= link_to 'Edit', edit_post_path(post) %></td>-->
+    <td><%= link_to 'Destroy from here (not from vk)', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
